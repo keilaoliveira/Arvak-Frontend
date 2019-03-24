@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { GrupoService } from '../../services/domain/grupo.service';
 
 @IonicPage()
 @Component({
@@ -8,11 +9,22 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class GruposPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public grupoService: GrupoService) {
   }
 
+
+
   ionViewDidLoad() {
-    console.log('ionViewDidLoad GruposPage');
+    this.grupoService.findAll()
+      .subscribe(response => {
+        console.log(response);
+      },
+      error => {
+        console.log(error);
+      })
   }
 
 }
