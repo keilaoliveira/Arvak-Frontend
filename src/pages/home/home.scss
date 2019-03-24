@@ -1,3 +1,36 @@
 page-home {
 
+    h4{
+        text-align: center;
+        color: #90356F;
+        padding-top: 15px;
+    }
+
+    img{
+        width: 180px;
+        height: 200px;
+        align-self: center;
+        margin: auto;
+        display: block;
+        padding: 10px;
+    }
+
+    .buttonLogin{
+        background-color: #94CA2D;
+        margin-top: 10px;
+    }
+
+    .buttonCadastrar{
+        background-color: #90356F;
+        margin-top: 5px;
+    }
+
+    .footText{
+        color: #B0B0B0;
+        //margin-top: 70px;
+        font-size: 11px;
+        font-style: italic;
+        text-align: center;
+    }
+
 }
