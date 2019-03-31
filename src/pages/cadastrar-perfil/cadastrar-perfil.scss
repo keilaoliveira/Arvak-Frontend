@@ -5,12 +5,17 @@ page-cadastrar-perfil {
     }
 
     .pCadastrar{
-        color: #94CA2D;;
-        font-style: italic;
+        color: #A0A0A0;
     }
 
     h6{
         text-align: center;
         color:  #90356F;
+    }
+
+    .danger{
+        color: red;
+        text-align: right;
+        font-size: 11px;
     }
 }
