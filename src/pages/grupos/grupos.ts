@@ -30,4 +30,8 @@ export class GruposPage {
       error => {})
   }
 
+  showProdutos() {
+    this.navCtrl.push('ProdutosPage');
+  }
+
 }

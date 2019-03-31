@@ -28,6 +28,23 @@ export class CadastrarPerfilPage {
     public alertCtrl: AlertController) 
     {
       this.formGroup = this.formBuilder.group({
+        nomeCliente: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(100)]],
+        email: ['', [Validators.required, Validators.email]],
+        tipoCliente : ['', [Validators.required]],
+        documentoCliente : ['', [Validators.required, Validators.minLength(11), Validators.maxLength(14)]],
+        senha : ['', [Validators.required]],
+        logradouro : ['', [Validators.required]],
+        numero : ['', [Validators.required]],
+        complemento : ['', []],
+        bairro : ['', []],
+        cep : ['', [Validators.required]],
+        telefone1 : ['', [Validators.required]],
+        telefone2 : ['', []],
+        telefone3 : ['', []],
+        estadoId : [null, [Validators.required]],
+        cidadeId : [null, [Validators.required]]   
+
+        /* Dados estáticos para teste
         nomeCliente: ['Deam Whinchester', [Validators.required, Validators.minLength(5), Validators.maxLength(100)]],
         email: ['dean@gmail.com', [Validators.required, Validators.email]],
         tipoCliente : ['1', [Validators.required]],
@@ -42,7 +59,8 @@ export class CadastrarPerfilPage {
         telefone2 : ['', []],
         telefone3 : ['', []],
         estadoId : [null, [Validators.required]],
-        cidadeId : [null, [Validators.required]]   
+        cidadeId : [null, [Validators.required]]
+        */
       })
   }
 
