@@ -30,8 +30,8 @@ export class GruposPage {
       error => {})
   }
 
-  showProdutos() {
-    this.navCtrl.push('ProdutosPage');
+  showProdutos(grupo_id: string) {
+    this.navCtrl.push('ProdutosPage', {grupo_id: grupo_id});
   }
 
 }
