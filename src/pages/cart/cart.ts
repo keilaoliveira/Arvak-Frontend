@@ -59,4 +59,8 @@ export class CartPage {
     this.navCtrl.setRoot('GruposPage');
   }
 
+  checkout(){
+    this.navCtrl.push('EscolherEnderecoPage');
+  }
+
 }
