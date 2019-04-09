@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { PedidoDTO } from '../../models/pedido.dto';
 import { CartItem } from '../../models/cart-item';
 import { CartService } from '../../services/domain/cart.service';
@@ -26,7 +26,8 @@ export class ConfirmacaoPedidoPage {
     public navParams: NavParams,
     public cartService: CartService,
     public clienteService: ClienteService,
-    public pedidoService: PedidoService) {
+    public pedidoService: PedidoService,
+    public loadingCtrl: LoadingController) {
 
     this.pedido = this.navParams.get('pedido');
 
@@ -63,13 +64,16 @@ export class ConfirmacaoPedidoPage {
    }
 
   checkout(){
+    let loader = this.presentLoading();
     this.pedidoService.insert(this.pedido)
       .subscribe(response => {
         this.cartService.createOrClearCart();
         this.codPedido = this.extractId(response.headers.get('location'));
+        loader.dismiss();
       }, 
       error => {
         if (error.status == 403){
+          loader.dismiss();
           this.navCtrl.setRoot('HomePage');
         }
       });
@@ -78,6 +82,14 @@ export class ConfirmacaoPedidoPage {
   private extractId(location: string) : string {
       let position = location.lastIndexOf('/');
       return location.substring(position + 1, location.length);
+  }
+
+  presentLoading() {
+    let loader = this.loadingCtrl.create({
+      content: "Aguarde..."
+    });
+    loader.present();
+    return loader;
   }
 
 }
