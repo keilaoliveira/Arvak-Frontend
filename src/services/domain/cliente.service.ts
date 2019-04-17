@@ -39,7 +39,7 @@ export class ClienteService{
         )
     }
 
-    /*
+    
     uploadPicture(picture){
         let pictureBlob = this.imageUtilService.dataUriToBlob(picture);
         let formData : FormData = new FormData();
@@ -54,6 +54,6 @@ export class ClienteService{
             }
         )
     }
-    */
+    
 
 }

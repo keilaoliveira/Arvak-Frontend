@@ -22,7 +22,7 @@ export class PerfilPage {
     public navParams: NavParams,
     public storage: StorageService,
     public clienteService: ClienteService,
-    //public camera: Camera
+    public camera: Camera
     ) {
   }
 
@@ -75,7 +75,7 @@ export class PerfilPage {
     }, (err) => {
     });
   }
-
+*/
   sendPicture(){
     this.clienteService.uploadPicture(this.picture)
       .subscribe(response => {
@@ -89,6 +89,25 @@ export class PerfilPage {
   cancel(){
     this.picture = null;
   }
-  */
+  
+
+ getGalleryPicture(){
+
+  this.cameraOn = true;
+
+  const options: CameraOptions = {
+    quality: 100,
+    sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
+    destinationType: this.camera.DestinationType.FILE_URI,
+    encodingType: this.camera.EncodingType.PNG,
+    mediaType: this.camera.MediaType.PICTURE
+  }
+  
+  this.camera.getPicture(options).then((imageData) => {
+    this.picture = 'data:image/png;base64,' + imageData;
+    this.cameraOn = false;
+  }, (err) => {
+  });
+}
 
 }
